@@ -1,7 +1,7 @@
 <template>
   <nav>
     <router-link to="/">Table</router-link> |
-    <router-link to="/about">Card</router-link> |
+    <router-link to="/card">Card</router-link> |
     <router-link to="/settings">Settings</router-link>
   </nav>
   <router-view/>
