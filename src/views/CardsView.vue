@@ -8,7 +8,7 @@
 </template>
 <script>
 import IndexCard from "@/components/IndexCard.vue";
-import DialogModal from "../components/DialogModal.vue";
+import DialogModal from "@/components/DialogModal.vue";
 export default {
   name: "CardsPage",
   components: {
@@ -59,6 +59,20 @@ export default {
           return item.id !== this.currentUser
         })
       }
+    }
+  },
+
+  beforeMount() {
+    console.log("Emit data")
+    this.$emit('getData',this.items)
+  },
+  mounted() {
+    console.log(this.$route.hash)
+  },
+
+  watch:{
+    $route() {
+      console.log(this.$route.hash)
     }
   }
 }

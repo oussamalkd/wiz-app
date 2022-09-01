@@ -4,8 +4,30 @@
     <router-link to="/card">Card</router-link> |
     <router-link to="/settings">Settings</router-link>
   </nav>
-  <router-view/>
+  <AutocompleteInput :items="users" />
+  <router-view @getData="getAutocompliteData"/>
 </template>
+<script>
+import AutocompleteInput from './components/AutocompleteInput.vue';
+export default {
+  components: {
+    AutocompleteInput
+  },
+  data() {
+    return {
+      users: []
+    }
+  },
+  methods: {
+    getAutocompliteData(data) {
+      this.users = data
+    }
+  },
+  beforeMount() {
+    this.getAutocompliteData()
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
