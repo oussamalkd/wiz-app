@@ -1,5 +1,5 @@
 <template>
-    <div class="index-card">
+    <div class="index-card" :id="id">
         <div class="card-wrapper">
             <div class="card-header">
                 {{ title }}
