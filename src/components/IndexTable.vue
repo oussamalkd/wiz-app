@@ -1,10 +1,10 @@
 <template>
-    <div class="overflow-y-scroll h-96">
+    <div class="table-container overflow-y-scroll">
         <table class="table table-zebra w-full">
           <!-- head -->
-          <thead>
+          <thead class="rounded">
             <tr>
-              <th></th>
+              <th>#</th>
               <th>API</th>
               <th>Auth</th>
               <th>Category</th>
@@ -14,6 +14,7 @@
               <th>Link</th>
             </tr>
           </thead>
+          <!-- body -->
           <tbody>
             <tr v-for="(item, index) in items" :key="index">
               <th> {{index}} </th>
@@ -32,15 +33,35 @@
       </div>
 </template>
 <script>
-  export default {
+export default {
     name: "IndexTable",
     props: {
-      items: []
-    },
-    data() {
-      return {
-        count: 0
-      }
+        items: {
+          default: []
+        },
+        isLoading: {
+          default: false
+        }
     }
-  }
+}
 </script>
+<style lang="scss">
+.table-container {
+  height: 80vh;
+}
+thead {
+  position: relative;
+  z-index: 12;
+}
+.table-zebra thead tr, .table-zebra tbody tr th {
+  position: sticky;
+  z-index: 11;
+}
+.table-zebra thead tr  {
+  top: 0px;
+}
+.table-zebra tbody tr th {
+  left: 0px;
+  background: #eee!important;
+}
+</style>
