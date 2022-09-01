@@ -1,17 +1,34 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <div class="container mx-auto">
+      <IndexTable :items="entries"/>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-
+import IndexTable from '@/components/IndexTable.vue'
+const axios = require("axios").default
 export default {
   name: 'HomeView',
   components: {
-    // HelloWorld
+    IndexTable
+  },
+  data () {
+    return {
+      entries: []
+    }
+  },
+  methods: {
+    getData() {
+      axios.get("https://api.publicapis.org/entries").then((res) => {
+        this.entries = res.data.entries
+      })
+    }
+  },
+  mounted () {
+    this.getData()
   }
 }
 </script>
