@@ -65,6 +65,8 @@ export default {
 .auto-complete {
     @apply input input-bordered w-96 text-base-content;
     border-radius: 5px !important;
+    position: relative;
+    z-index: 30;
     &:focus, &:active {
         outline: none
     }
