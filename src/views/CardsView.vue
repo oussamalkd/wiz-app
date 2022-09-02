@@ -40,9 +40,14 @@ export default {
 
     // search and scroll the selected user and highlight the card
     getSelectedUser() {
+      // first remove highlites card if exist
+      const cards = document.querySelectorAll(".index-card")
+      cards.forEach(card => {
+        card.classList.remove("highlited")
+      })
       if (this.$route.hash !== "") {
         const selectedCard = document.getElementById(this.$route.hash.substring(1));
-        selectedCard.classList.toggle("highlited")
+        selectedCard.classList.add("highlited")
       }
     }
   },

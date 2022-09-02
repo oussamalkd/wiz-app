@@ -1,20 +1,20 @@
 <template>
-  <nav>
-    <router-link to="/">Table</router-link> |
-    <router-link to="/card">Card</router-link> |
-    <router-link to="/settings">Settings</router-link>
-  </nav>
-  <AutocompleteInput :items="users" />
+  <IndexNavBar />
+  <div class="search-box w-full mx-auto flex justify-center items-center py-5">
+    <AutocompleteInput :items="users" />
+  </div>
   <router-view />
 </template>
 <script>
 import AutocompleteInput from './components/AutocompleteInput.vue';
 import store from '@/store/index';
+import IndexNavBar from './components/NavBar/IndexNavBar.vue';
 
 export default {
   components: {
-    AutocompleteInput
-  },
+    AutocompleteInput,
+    IndexNavBar
+},
   data() {
     return {
       users: store.state.users

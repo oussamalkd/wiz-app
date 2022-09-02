@@ -48,6 +48,7 @@ export default {
 <style lang="scss">
 .table-container {
   height: 80vh;
+  @apply text-base-content;
 }
 thead {
   position: relative;
@@ -60,8 +61,7 @@ thead {
 .table-zebra thead tr  {
   top: 0px;
 }
-.table-zebra tbody tr th {
+.table-zebra tbody tr th, .table-zebra tbody tr:nth-child(2n) th {
   left: 0px;
-  background: #eee!important;
 }
 </style>
