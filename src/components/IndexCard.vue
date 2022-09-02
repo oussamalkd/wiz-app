@@ -9,7 +9,7 @@
             </div>
             <!-- The button to open dialog modal -->
             <!-- Send the id of selected user to parent  -->
-            <label for="my-modal" class="btn btn-link modal-button" @click="$emit('getCurrentUser',id)">Delete</label>
+            <label for="my-modal" class="btn btn-link text-error modal-button" @click="$emit('getCurrentUser',id)">Delete</label>
         </div>
     </div>
 </template>
@@ -31,7 +31,7 @@ export default {
 </script>
 <style lang="scss">
 .index-card {
-    @apply bg-neutral-content shadow-lg flex flex-col rounded-lg w-full xl:w-5/12 2xl:w-3/12 m-5;
+    @apply bg-primary-content shadow-lg flex flex-col rounded-lg w-full xl:w-5/12 2xl:w-3/12 m-5;
     transition: all 0.5s ease-in-out;
     cursor: pointer;
 
@@ -39,16 +39,16 @@ export default {
         @apply p-4 text-left;
 
         .card-header {
-            @apply text-xl font-medium text-gray-900
+            @apply text-xl font-medium text-primary-focus
         }
         .card-content {
-            @apply text-gray-400 font-medium text-lg
+            @apply text-base-content font-normal text-lg
 
         }
     }
 
     &:hover {
-        @apply bg-gray-50
+        @apply bg-base-200
     }
 
     &.highlited {

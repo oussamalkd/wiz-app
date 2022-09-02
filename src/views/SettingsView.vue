@@ -1,11 +1,12 @@
 <template>
     <div class="settings-page">
-        <h1 class="text-blue-600 text-4xl">Settings Page</h1>
-        <div class="form-control">
-            <label class="label cursor-pointer">
-              <span class="label-text">Dark Mode</span>
-              <input type="checkbox" class="toggle toggle-primary" :checked="isChecked" @click="toggleCheckbox" />
-            </label>
+        <div class="setting-container flex mx-auto justify-center items-center">
+            <div class="form-control">
+                <label class="label cursor-pointer">
+                <span class="label-text text-xl mx-2">Dark Mode</span>
+                <input type="checkbox" class="toggle toggle-primary" :checked="isChecked" @click="toggleCheckbox" />
+                </label>
+            </div>
         </div>
     </div>
 </template>
