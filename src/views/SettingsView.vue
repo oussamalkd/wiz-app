@@ -32,23 +32,21 @@ export default {
             window.localStorage.setItem('theme', this.isChecked ? 'night' : 'light')
         },
 
-        // get theme from local storage
-        getTheme() {
+        // toggle checkbox depend on current theme
+        getCheckBoxValue() {
             const theme = window.localStorage.getItem('theme')
-            // get current theme and toggle to checkbox
+            // get current theme
             if(theme === 'night') {
-                this.isChecked = true
-                document.querySelector('html').setAttribute('data-theme','night')
+                this.isChecked =  true
             } else {
                 this.isChecked = false
-                document.querySelector('html').setAttribute('data-theme','light')
             }
-        }
+            }
     },
 
     mounted() {
-        // get theme anytime the settings page opens
-        this.getTheme()
+        // get Check Box Value anytime the settings page opens
+        this.getCheckBoxValue()
     }
 }    
 </script>

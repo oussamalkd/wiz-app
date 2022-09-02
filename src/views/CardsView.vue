@@ -9,42 +9,17 @@
 <script>
 import IndexCard from "@/components/IndexCard.vue";
 import DialogModal from "@/components/DialogModal.vue";
+import store from "@/store/index"
 export default {
   name: "CardsPage",
   components: {
     IndexCard,
     DialogModal
-},
+  },
   data() {
     return {
-      items: [
-        {
-          id: "1",
-          name: "Lebron James",
-          team: "Los Angeles Lakers"
-        },
-        {
-          id: "2",
-          name: "Stephen Curry",
-          team: "Golden State Warriors"
-        },
-        {
-          id: "3",
-          name: "Kawhi Leonard",
-          team: "Los Angeles Clippers"
-        },
-        {
-          id: "4",
-          name: "Kevin Durant",
-          team: "Broklyn Nets"
-        },
-        {
-          id: "5",
-          name: "Luka Doncic",
-          team: "Dallas Mavs"
-        }
-      ],
-      currentUser: ''
+      currentUser: '',
+      items: store.state.users
     }
   },
   methods: {
@@ -58,13 +33,9 @@ export default {
         this.items = this.items.filter((item) => {
           return item.id !== this.currentUser
         })
+        store.commit("setUsers", this.items)
       }
     }
-  },
-
-  beforeMount() {
-    console.log("Emit data")
-    this.$emit('getData',this.items)
   },
   mounted() {
     console.log(this.$route.hash)

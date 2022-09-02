@@ -5,27 +5,39 @@
     <router-link to="/settings">Settings</router-link>
   </nav>
   <AutocompleteInput :items="users" />
-  <router-view @getData="getAutocompliteData"/>
+  <router-view />
 </template>
 <script>
 import AutocompleteInput from './components/AutocompleteInput.vue';
+import store from '@/store/index';
+
 export default {
   components: {
     AutocompleteInput
   },
   data() {
     return {
-      users: []
+      users: store.state.users
     }
   },
+
   methods: {
-    getAutocompliteData(data) {
-      this.users = data
+    // get theme from local storage
+    getTheme() {
+      const theme = window.localStorage.getItem('theme')
+      // get current theme
+      if(theme === 'night') {
+          document.querySelector('html').setAttribute('data-theme','night')
+      } else {
+          document.querySelector('html').setAttribute('data-theme','light')
+      }
     }
   },
-  beforeMount() {
-    this.getAutocompliteData()
-  }
+
+  mounted() {
+      // get theme anytime runing the App
+      this.getTheme()
+    }
 }
 </script>
 
