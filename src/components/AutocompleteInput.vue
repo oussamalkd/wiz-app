@@ -3,22 +3,27 @@
         <!--You should add Click outside modal = false-->
         <div class="form-control">
             <div class="input-group mx-auto">
-                <input v-model="search" type="text" autocomplete="off" placeholder="Search user" class="auto-complete" @focus="modal = true"/>
+                <input v-model="search" type="text" autocomplete="off" placeholder="Search user" class="auto-complete" @focus="modal = true" v-click-outside="onClickOutside"/>
             </div>
         </div>
         <div v-if="filtredItems && modal" class="suggestions">
             <ul>
-                <li v-for="(item, index) in filtredItems" :key="index" @click="setItem(item.name)"> 
-                    <router-link :to="'/card#'+item.id">{{ item.name }}</router-link>
+                <li v-for="(item, index) in filtredItems" :key="index" @click="setItem(item.id)"> 
+                    {{ item.name }}
                 </li>
             </ul>
         </div>
     </div>
 </template>
 <script>
+import store from '@/store/index'
+import vClickOutside from 'click-outside-vue3'
 export default {
     name: 'AutocompleteInput',
     props:['items'],
+    directives: {
+        clickOutside: vClickOutside.directive
+    },
     data() {
         return {
             search: '',
@@ -41,9 +46,16 @@ export default {
             }
         },
         // set value when user click on a suggestion
-        setItem() {
+        setItem(user) {
+            store.state.id = user
             this.search = ''
             //hide suggestions list
+            this.modal = false
+            this.$router.push({path: '/card'})
+        },
+
+        //
+        onClickOutside() {
             this.modal = false
         }
     },

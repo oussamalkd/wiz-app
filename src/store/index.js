@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    id: '',
     users: [
       {
         id: "1",
@@ -25,6 +26,62 @@ export default createStore({
       },
       {
         id: "5",
+        name: "Luka Doncic",
+        team: "Dallas Mavs"
+      },
+
+      {
+        id: "5s",
+        name: "Luka Doncic",
+        team: "Dallas Mavs"
+      },
+
+      {
+        id: "5r",
+        name: "Luka Doncic",
+        team: "Dallas Mavs"
+      },
+
+      {
+        id: "v5",
+        name: "Luka Doncic",
+        team: "Dallas Mavs"
+      },
+
+      {
+        id: "v5",
+        name: "Luka Doncic",
+        team: "Dallas Mavs"
+      },
+
+      {
+        id: "5ddfdf",
+        name: "Luka Doncic",
+        team: "Dallas Mavs"
+      },
+
+      {
+        id: "5sgfd",
+        name: "Luka Doncic",
+        team: "Dallas Mavs"
+      },
+      {
+        id: "5sgfg",
+        name: "Luka Doncic",
+        team: "Dallas Mavs"
+      },
+      {
+        id: "5ssds",
+        name: "Luka Doncic",
+        team: "Dallas Mavs"
+      },
+      {
+        id: "5sff",
+        name: "Luka Doncic",
+        team: "Dallas Mavs"
+      },
+      {
+        id: "5sss",
         name: "Luka Doncic",
         team: "Dallas Mavs"
       },
