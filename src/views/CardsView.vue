@@ -27,6 +27,7 @@ export default {
     deleteCard(id) {
       this.currentUser = id
     },
+
     // remove the selected one from array
     isConfirmed(val) {
       if(val) {
@@ -35,15 +36,23 @@ export default {
         })
         store.commit("setUsers", this.items)
       }
+    },
+
+    // search and scroll the selected user and highlight the card
+    getSelectedUser() {
+      if (this.$route.hash !== "") {
+        const selectedCard = document.getElementById(this.$route.hash.substring(1));
+        selectedCard.classList.toggle("highlited")
+      }
     }
   },
   mounted() {
-    console.log(this.$route.hash)
+    this.getSelectedUser()
   },
 
   watch:{
     $route() {
-      console.log(this.$route.hash)
+      this.getSelectedUser()
     }
   }
 }

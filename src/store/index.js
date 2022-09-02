@@ -27,6 +27,11 @@ export default createStore({
         id: "5",
         name: "Luka Doncic",
         team: "Dallas Mavs"
+      },
+      {
+        id: "6",
+        name: "Russell Westbrook",
+        team: "Los Angeles Lakers"
       }
     ],
   },

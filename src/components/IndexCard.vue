@@ -50,5 +50,28 @@ export default {
     &:hover {
         @apply bg-gray-50
     }
+
+    &.highlited {
+        @apply border border-blue-600;
+        animation: highlight 2s ease-in-out;
+    }
+}
+// highligh animation
+@keyframes highlight {
+    0% {
+        @apply opacity-100 border-opacity-100;
+    }
+    30% {
+        @apply opacity-10 border-opacity-10;
+    }
+    70% {
+        @apply opacity-90 border-opacity-90;
+    }
+    85% {
+        @apply opacity-20 border-opacity-20;
+    }
+    100% {
+        @apply opacity-100 border-opacity-100;
+    }
 }
 </style>
