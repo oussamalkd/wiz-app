@@ -25,7 +25,7 @@ name: 'IndexNavBar'
 </script>
 <style lang="scss">
 .navbar {
-    @apply bg-secondary-content shadow-lg text-accent-focus;
+    @apply bg-base-200 shadow-lg text-primary;
     .logo {
         @apply flex-1;
         a {

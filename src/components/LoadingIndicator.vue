@@ -9,6 +9,14 @@
     </div>
 </template>
 <style lang="scss">
+html[data-theme="night"] {
+    .loading-indicator {
+        span {
+            border: 8px solid #eee;
+            border-color: #eee transparent transparent transparent;
+        }
+    }
+}
 .indicator-container {
     @apply mx-auto flex justify-center items-center;
 }
