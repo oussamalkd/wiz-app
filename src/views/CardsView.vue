@@ -38,26 +38,35 @@ export default {
       }
     },
 
-    // search and scroll the selected user and highlight the card
+    // search the selected user and highlight the card
     getSelectedUser() {
       // first remove highlites card if exist
       const cards = document.querySelectorAll(".index-card")
       cards.forEach(card => {
         card.classList.remove("highlited")
       })
-      if (this.$route.hash !== "") {
-        const selectedCard = document.getElementById(this.$route.hash.substring(1));
+      if (store.state.id !== "") {
+        const selectedCard = document.getElementById(store.state.id);
         selectedCard.classList.add("highlited")
+      }
+    },
+
+    // scroll to selected user
+    scrollToSelectedUser() {
+      if(store.state.id !== "") {
+        document.getElementById(store.state.id).scrollIntoView()
       }
     }
   },
   mounted() {
     this.getSelectedUser()
+    this.scrollToSelectedUser()
   },
 
   watch:{
-    $route() {
+    '$store.state.id': function() {
       this.getSelectedUser()
+      this.scrollToSelectedUser()
     }
   }
 }
