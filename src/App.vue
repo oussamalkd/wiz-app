@@ -1,8 +1,7 @@
 <template>
-  <IndexNavBar v-if="!isMobile" />
-  <MobileNavBar v-else />
+  <component :is="isMobile ? 'MobileNavBar' : 'IndexNavBar' " />
   <div class="search-box w-full mx-auto flex justify-center items-center py-5">
-    <AutocompleteInput :items="users" />
+    <AutocompleteInput />
   </div>
   <router-view />
 </template>

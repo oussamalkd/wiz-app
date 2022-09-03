@@ -20,7 +20,6 @@ import store from '@/store/index'
 import vClickOutside from 'click-outside-vue3'
 export default {
     name: 'AutocompleteInput',
-    props:['items'],
     directives: {
         clickOutside: vClickOutside.directive
     },
@@ -28,7 +27,8 @@ export default {
         return {
             search: '',
             filtredItems: [],
-            modal: false
+            modal: false,
+            items: store.state.users
         }
     },
 
