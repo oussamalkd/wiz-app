@@ -1,4 +1,5 @@
 # wiz-app
+a simple App for a client requirement, wants to test me
 
 ## Project setup
 ```
